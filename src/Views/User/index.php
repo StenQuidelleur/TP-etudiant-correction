@@ -10,6 +10,13 @@
         </div>
         <?php if (isset($users) && !empty($users)) { ?>
             <table class="table">
+                <form method="POST" class="mt-5">
+                    <h5>Search Student</h5>
+                    <div class="d-flex col-3 mb-3">
+                        <input type="text" class="form-control" name="student" placeholder="Enter number of student">
+                        <button type="submit" class="btn btn-secondary mx-3">Search</button>
+                    </div>
+                </form>
                 <thead>
                     <tr>
                         <th scope="col">#</th>

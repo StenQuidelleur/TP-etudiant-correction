@@ -5,7 +5,7 @@ namespace App\Controllers;
 /**
  * Renderer class : render the view with params
  */
-class AbstractController
+abstract class AbstractController
 {
     /**
      * @param string $viewPath

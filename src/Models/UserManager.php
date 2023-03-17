@@ -51,4 +51,19 @@ class UserManager extends AbstractManager
 
         return $statement->execute();
     }
+
+    /**
+     * @param string $nbrStudent
+     * 
+     * @return array
+     */
+    public function selectOnebyNbrStudent(string $nbrStudent): array
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE student_number = :nbrstudent");
+        $statement->bindValue('nbrstudent', $nbrStudent, \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
 }

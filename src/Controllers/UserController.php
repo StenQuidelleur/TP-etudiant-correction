@@ -17,6 +17,13 @@ class UserController extends AbstractController
         $UserManager = new UserManager();
         $users = $UserManager->selectAll();
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $userData = array_map('trim', $_POST);
+
+            $users = [$UserManager->selectOnebyNbrStudent($userData['student'])];
+        }
+
         return $this->render('User/index', ['users' => $users]);
     }
 
